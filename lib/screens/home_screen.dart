@@ -5,6 +5,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 2,
+        title: Text('S A A D Coach'),
+      ),
+    );
   }
 }
