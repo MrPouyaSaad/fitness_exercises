@@ -1,5 +1,7 @@
+import 'package:fitness_exercises/providers/category_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -35,7 +37,9 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
                 color: Colors.black54,
               ),
-              child: Row(),
+              child: Row(
+                children: [],
+              ),
             );
           }
         },
@@ -44,45 +48,39 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class CategoryList extends StatefulWidget {
+class CategoryList extends StatelessWidget {
   const CategoryList({super.key});
 
   @override
-  State<CategoryList> createState() => _CategoryListState();
-}
-
-class _CategoryListState extends State<CategoryList> {
-  int selectedItem = 0;
-  List categories = ['For you', 'Challenges', 'Exercises', 'Supplement'];
-  @override
   Widget build(BuildContext context) {
+    final categoryProvider = Provider.of<CategoryProvider>(context);
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       height: 64,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.only(top: 8, bottom: 24),
-        itemCount: categories.length,
+        itemCount: categoryProvider.categories.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              setState(() {
-                selectedItem = index;
-              });
+              categoryProvider.changeCategory(index);
             },
             child: Container(
               margin: EdgeInsets.only(
-                  left: 24, right: index == categories.length - 1 ? 24 : 0),
+                  left: 24,
+                  right:
+                      index == categoryProvider.categories.length - 1 ? 24 : 0),
               padding: const EdgeInsets.symmetric(horizontal: 16),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: index == selectedItem
+                color: index == categoryProvider.index
                     ? Colors.white.withOpacity(0.4)
                     : Colors.white.withOpacity(0.075),
                 borderRadius: BorderRadius.circular(6.0),
               ),
               child: Text(
-                categories[index],
+                categoryProvider.categories[index],
                 style: const TextStyle(
                   color: Colors.white,
                 ),
