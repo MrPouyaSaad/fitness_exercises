@@ -1,17 +1,21 @@
-import 'package:fitness_exercises/providers/category_provider.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import 'package:fitness_exercises/providers/category_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final categoryProvider = Provider.of<CategoryProvider>(context);
+
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
       body: ListView.builder(
-        itemCount: 5,
+        itemCount: categoryProvider.cardItem.length + 2,
         itemBuilder: (context, index) {
           if (index == 0) {
             return const Row(
@@ -27,7 +31,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ).marginSymmetric(horizontal: 24, vertical: 16);
           } else if (index == 1) {
-            return const CategoryList();
+            return CategoryList();
           } else {
             return Container(
               height: 186,
@@ -38,7 +42,9 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.black54,
               ),
               child: Row(
-                children: [],
+                children: [
+                  Text(categoryProvider.cardItem[0].title),
+                ],
               ),
             );
           }
@@ -49,7 +55,9 @@ class HomeScreen extends StatelessWidget {
 }
 
 class CategoryList extends StatelessWidget {
-  const CategoryList({super.key});
+  const CategoryList({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
