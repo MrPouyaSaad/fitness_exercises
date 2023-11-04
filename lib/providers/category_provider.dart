@@ -4,36 +4,8 @@ import 'package:flutter/material.dart';
 class CategoryProvider with ChangeNotifier {
   int index = 0;
   List categories = ['For you', 'Challenges', 'Exercises', 'Supplement'];
-  List<CardItem> forYouList = [
-    CardItem(title: 'forYouList', imagePatch: 'imagePatch', caption: 'caption'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-  ];
-  List<CardItem> challengesList = [
-    CardItem(
-        title: 'challengesList', imagePatch: 'imagePatch', caption: 'caption'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-    CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
-  ];
-  List<CardItem> exercisesList = [
-    CardItem(
-        title: 'exercisesList', imagePatch: 'imagePatch', caption: 'caption'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-    CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
-  ];
-  List<CardItem> supplementList = [
-    CardItem(
-        title: 'supplementList', imagePatch: 'imagePatch', caption: 'caption'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-    CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
-    CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
-  ];
-  List cardItem = [
-    CardItem(title: 'forYouList', imagePatch: 'imagePatch', caption: 'caption'),
-    CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-  ];
+
+  List cardItem = forYouList;
 
   void changeCategory(int newIndex) {
     index = newIndex;
@@ -50,3 +22,43 @@ class CategoryProvider with ChangeNotifier {
     notifyListeners();
   }
 }
+
+List<CardItem> forYouList = [
+  CardItem(
+    title: 'Cardio',
+    imagePatch: 'cardio.png',
+    caption: 'exercise for your cardiovascular system',
+  ),
+  CardItem(
+    title: 'Cuting',
+    imagePatch: 'cut.png',
+    caption: 'lose fat without losing muscle',
+  ),
+  CardItem(
+    title: 'Bulking',
+    imagePatch: 'bulk.png',
+    caption: 'the muscle gaining phase',
+  ),
+];
+List<CardItem> challengesList = [
+  CardItem(
+      title: 'challengesList', imagePatch: 'imagePatch', caption: 'caption'),
+  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
+  CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
+];
+List<CardItem> exercisesList = [
+  CardItem(
+      title: 'exercisesList', imagePatch: 'imagePatch', caption: 'caption'),
+  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
+  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
+  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
+  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
+  CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
+];
+List<CardItem> supplementList = [
+  CardItem(
+      title: 'supplementList', imagePatch: 'imagePatch', caption: 'caption'),
+  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
+  CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
+  CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
+];
