@@ -33,6 +33,8 @@ class HomeScreen extends StatelessWidget {
           } else if (index == 1) {
             return CategoryList();
           } else {
+            final basePach = 'assets/images/';
+            final category = categoryProvider.cardItem[index - 2];
             return Container(
               height: 186,
               width: double.infinity,
@@ -42,9 +44,38 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.black54,
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(categoryProvider.cardItem[0].title),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          category.title,
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          category.caption,
+                          style: TextStyle(
+                            fontSize: 24,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    ).paddingSymmetric(vertical: 12),
+                  ),
+                  Image.asset(
+                    basePach + category.imagePatch,
+                  )
                 ],
+              ).paddingSymmetric(
+                horizontal: 16,
               ),
             );
           }
