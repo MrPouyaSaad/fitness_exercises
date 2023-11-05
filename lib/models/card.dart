@@ -2,10 +2,10 @@
 class CardItem {
   String title;
   String imagePatch;
-  String caption;
+  String? caption;
   CardItem({
     required this.title,
     required this.imagePatch,
-    required this.caption,
+    this.caption,
   });
 }

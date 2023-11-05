@@ -54,16 +54,17 @@ class HomeScreen extends StatelessWidget {
                           category.title,
                           style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                         ),
                         Spacer(),
-                        Text(
-                          category.caption,
-                          style: TextStyle(
-                            fontSize: 24,
+                        if (category.caption != null)
+                          Text(
+                            category.caption,
+                            style: TextStyle(
+                              fontSize: 24,
+                            ),
                           ),
-                        ),
                         SizedBox(
                           height: 16,
                         ),

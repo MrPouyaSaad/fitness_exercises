@@ -47,13 +47,14 @@ List<CardItem> challengesList = [
   CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
 ];
 List<CardItem> exercisesList = [
-  CardItem(
-      title: 'exercisesList', imagePatch: 'imagePatch', caption: 'caption'),
-  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-  CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
-  CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
+  CardItem(title: 'exercisesList', imagePatch: 'imagePatch'),
 ];
 List<CardItem> supplementList = [
   CardItem(
