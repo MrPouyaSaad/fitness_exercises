@@ -4,9 +4,30 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'package:fitness_exercises/providers/category_provider.dart';
+import 'package:video_player/video_player.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late VideoPlayerController videoPlayerController =
+      VideoPlayerController.asset(
+    'assets/videos/press_barble.mp4',
+    videoPlayerOptions: VideoPlayerOptions(allowBackgroundPlayback: false),
+  )
+        ..initialize()
+        ..setLooping(true)
+        ..play();
+
+  @override
+  void dispose() {
+    videoPlayerController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +92,14 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ).paddingSymmetric(vertical: 12),
                   ),
-                  Image.asset(
-                    basePach + category.imagePatch,
-                  )
+                  if (category.caption != null)
+                    Image.asset(
+                      basePach + category.imagePatch,
+                    )
+                  else
+                    Expanded(
+                      child: VideoPlayer(videoPlayerController),
+                    )
                 ],
               ).paddingSymmetric(
                 horizontal: 16,
