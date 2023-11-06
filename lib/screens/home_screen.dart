@@ -2,32 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
-import 'package:fitness_exercises/providers/category_provider.dart';
 import 'package:video_player/video_player.dart';
 
-class HomeScreen extends StatefulWidget {
+import 'package:fitness_exercises/providers/category_provider.dart';
+
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late VideoPlayerController videoPlayerController =
-      VideoPlayerController.asset(
-    'assets/videos/press_barble.mp4',
-    videoPlayerOptions: VideoPlayerOptions(allowBackgroundPlayback: false),
-  )
-        ..initialize()
-        ..setLooping(true)
-        ..play();
-
-  @override
-  void dispose() {
-    videoPlayerController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       basePach + category.imagePatch,
                     )
                   else
-                    Expanded(
-                      child: VideoPlayer(videoPlayerController),
-                    )
+                    ExerciseVideo(
+                      videoPatch: category.imagePatch,
+                    ),
                 ],
               ).paddingSymmetric(
                 horizontal: 16,
@@ -108,6 +88,42 @@ class _HomeScreenState extends State<HomeScreen> {
           }
         },
       ),
+    );
+  }
+}
+
+class ExerciseVideo extends StatefulWidget {
+  const ExerciseVideo({
+    Key? key,
+    required this.videoPatch,
+  }) : super(key: key);
+
+  final String videoPatch;
+  @override
+  State<ExerciseVideo> createState() => _ExerciseVideoState();
+}
+
+class _ExerciseVideoState extends State<ExerciseVideo> {
+  final String basePatch = 'assets/videos/';
+  late VideoPlayerController videoPlayerController =
+      VideoPlayerController.asset(
+    basePatch + widget.videoPatch,
+    videoPlayerOptions: VideoPlayerOptions(allowBackgroundPlayback: false),
+  )
+        ..initialize()
+        ..setLooping(true)
+        ..play();
+
+  @override
+  void dispose() {
+    videoPlayerController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: VideoPlayer(videoPlayerController),
     );
   }
 }
