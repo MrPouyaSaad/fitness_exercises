@@ -47,7 +47,16 @@ List<CardItem> challengesList = [
   CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
 ];
 List<CardItem> exercisesList = [
-  CardItem(title: 'exercisesList', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Barbell Bench Press', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Dumbbell Bench Press', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Incline Bench Press', imagePatch: 'press_barble.mp4'),
+  CardItem(
+      title: 'Incline Dumbbell Bench Press', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Dumbbell Flys', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Dumbbell Flys', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Chest Flye', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Push-Up', imagePatch: 'press_barble.mp4'),
+  CardItem(title: 'Cable Iron Cross', imagePatch: 'press_barble.mp4'),
 ];
 List<CardItem> supplementList = [
   CardItem(
