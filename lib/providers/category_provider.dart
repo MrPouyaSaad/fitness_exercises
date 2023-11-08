@@ -15,7 +15,7 @@ class CategoryProvider with ChangeNotifier {
       case 1:
         cardItem = challengesList;
       case 2:
-        cardItem = exercisesList;
+        cardItem = exerciseTitleList;
       case 3:
         cardItem = supplementList;
     }
@@ -64,4 +64,13 @@ List<CardItem> supplementList = [
   CardItem(title: 'title2', imagePatch: 'imagePatch2', caption: 'caption2'),
   CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
   CardItem(title: 'title3', imagePatch: 'imagePatch3', caption: 'caption3'),
+];
+
+List<CardItem> exerciseTitleList = [
+  CardItem(title: 'Chest', imagePatch: 'imagePatch2'),
+  CardItem(title: 'Arm', imagePatch: 'imagePatch2'),
+  CardItem(title: 'Axilla', imagePatch: 'imagePatch2'),
+  CardItem(title: 'Shoulder', imagePatch: 'imagePatch2'),
+  CardItem(title: 'Leg', imagePatch: 'imagePatch2'),
+  CardItem(title: 'Cardio', imagePatch: 'imagePatch2'),
 ];

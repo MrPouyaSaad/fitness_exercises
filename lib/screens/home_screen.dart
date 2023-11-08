@@ -36,8 +36,9 @@ class HomeScreen extends StatelessWidget {
           } else {
             final basePach = 'assets/images/';
             final category = categoryProvider.cardItem[index - 2];
+            bool isExerciseList = categoryProvider.index == 2;
             return Container(
-              height: 186,
+              height: isExerciseList ? 96 : 186,
               width: double.infinity,
               margin: const EdgeInsets.only(bottom: 32, left: 24, right: 24),
               decoration: BoxDecoration(
@@ -50,6 +51,7 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           category.title,
@@ -58,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 16,
                           ),
                         ),
-                        Spacer(),
+                        if (!isExerciseList) Spacer(),
                         if (category.caption != null)
                           Text(
                             category.caption,
@@ -66,9 +68,10 @@ class HomeScreen extends StatelessWidget {
                               fontSize: 24,
                             ),
                           ),
-                        SizedBox(
-                          height: 16,
-                        ),
+                        if (!isExerciseList)
+                          SizedBox(
+                            height: 16,
+                          ),
                       ],
                     ).paddingSymmetric(vertical: 12),
                   ),
@@ -77,9 +80,10 @@ class HomeScreen extends StatelessWidget {
                       basePach + category.imagePatch,
                     )
                   else
-                    ExerciseVideo(
-                      videoPatch: category.imagePatch,
-                    ),
+                    // ExerciseVideo(
+                    //   videoPatch: category.imagePatch,
+                    // ),
+                    Text(category.title),
                 ],
               ).paddingSymmetric(
                 horizontal: 16,
