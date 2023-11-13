@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fitness_exercises/screens/exercise/chest.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -45,48 +47,67 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
                 color: Colors.black54,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          category.title,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                          ),
-                        ),
-                        if (!isExerciseList) Spacer(),
-                        if (category.caption != null)
+              child: InkWell(
+                onTap: () {
+                  switch (index) {
+                    case 2:
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => ChestExercisesScreen()),
+                      );
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                      break;
+                    default:
+                  }
+                },
+                borderRadius: BorderRadius.circular(18),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
                           Text(
-                            category.caption,
+                            category.title,
                             style: TextStyle(
-                              fontSize: 24,
+                              color: Colors.grey,
+                              fontSize: 16,
                             ),
                           ),
-                        if (!isExerciseList)
-                          SizedBox(
-                            height: 16,
-                          ),
-                      ],
-                    ).paddingSymmetric(vertical: 12),
-                  ),
-                  if (category.caption != null)
-                    Image.asset(
-                      basePach + category.imagePatch,
-                    )
-                  else
-                    // ExerciseVideo(
-                    //   videoPatch: category.imagePatch,
-                    // ),
-                    Text(category.title),
-                ],
-              ).paddingSymmetric(
-                horizontal: 16,
+                          if (!isExerciseList) Spacer(),
+                          if (category.caption != null)
+                            Text(
+                              category.caption,
+                              style: TextStyle(
+                                fontSize: 24,
+                              ),
+                            ),
+                          if (!isExerciseList)
+                            SizedBox(
+                              height: 16,
+                            ),
+                        ],
+                      ).paddingSymmetric(vertical: 12),
+                    ),
+                    if (category.caption != null)
+                      Image.asset(
+                        basePach + category.imagePatch,
+                      )
+                    else
+                      // ExerciseVideo(
+                      //   videoPatch: category.imagePatch,
+                      // ),
+                      Text(category.title),
+                  ],
+                ).paddingSymmetric(
+                  horizontal: 16,
+                ),
               ),
             );
           }
