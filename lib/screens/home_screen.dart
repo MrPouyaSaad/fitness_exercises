@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:fitness_exercises/constant/exercise_list.dart';
 import 'package:fitness_exercises/screens/exercise/exercise_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,13 +55,19 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
-                            builder: (context) => ExerciseDetailsScreen()),
+                            builder: (context) => ExerciseDetailsScreen(
+                                  exerciseList: armList,
+                                  title: 'Chest',
+                                )),
                       );
                     case 3:
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
-                            builder: (context) => ExerciseDetailsScreen()),
+                            builder: (context) => ExerciseDetailsScreen(
+                                  exerciseList: armList,
+                                  title: 'Arm',
+                                )),
                       );
                     case 4:
                     case 5:
